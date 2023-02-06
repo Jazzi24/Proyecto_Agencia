@@ -5,6 +5,7 @@ namespace Proyecto_Agencia.Models;
 
 public partial class Auto
 {
+
     public int IdAuto { get; set; }
 
     public string Modelo { get; set; } = null!;
