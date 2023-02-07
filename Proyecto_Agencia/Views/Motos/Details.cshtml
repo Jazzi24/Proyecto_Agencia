@@ -1,0 +1,56 @@
+﻿@model Proyecto_Agencia.Models.Moto
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Agencia_Automotriz</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/crear2.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Agencia_Automotriz.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+    <div class="conteiner">
+        <h1>Mas informacion</h1>
+
+        <div>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Modelo)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Modelo)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Color)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Color)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Precio)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Precio)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Cantidad)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Cantidad)
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model?.IdMoto" style="color:black">Editar</a> |
+        <a asp-action="Index" style="color:black">Regresar</a>
+    </div>
+</body>

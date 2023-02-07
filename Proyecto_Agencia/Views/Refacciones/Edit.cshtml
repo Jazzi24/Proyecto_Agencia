@@ -1,0 +1,64 @@
+﻿@model Proyecto_Agencia.Models.Refaccione
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Agencia_Automotriz</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/crear.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Agencia_Automotriz.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<h4>Refacciones</h4>
+<hr />
+<div class="conteiner">
+    <form asp-action="Edit">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="IdRefaccion" />
+        <div class="form-group">
+            <label asp-for="Nombre" class="control-label"></label>
+            <input asp-for="Nombre" class="form-control" />
+            <span asp-validation-for="Nombre" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Marca" class="control-label"></label>
+            <input asp-for="Marca" class="form-control" />
+            <span asp-validation-for="Marca" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Precio" class="control-label"></label>
+            <input asp-for="Precio" class="form-control" />
+            <span asp-validation-for="Precio" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Descripcion" class="control-label"></label>
+            <input asp-for="Descripcion" class="form-control" />
+            <span asp-validation-for="Descripcion" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Cantidad" class="control-label"></label>
+            <input asp-for="Cantidad" class="form-control" />
+            <span asp-validation-for="Cantidad" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Guardar" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+
+<div>
+    <a asp-action="Index" style="color:black">Regresar</a>
+</div>
+<br />
+<br />
+<h1>__________</h1>
+<br />
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

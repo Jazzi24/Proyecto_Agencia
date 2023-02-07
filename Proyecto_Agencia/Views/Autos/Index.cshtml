@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Proyecto_Agencia.Models.Auto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-4 mt-4">
+            <div class="card text-bg-info mb-3" style="max-width: 18rem;">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><img src="https://thumbs.dreamstime.com/b/icono-del-coche-silueta-negra-de-autom%C3%B3vil-s%C3%ADmbolo-veh%C3%ADculo-vector-aislado-sobre-blanco-213429961.jpg" width="250" /></li>
+                    <li class="list-group-item">Modelo: @Html.DisplayFor(modelItem => item.Modelo)</li>
+                    <li class="list-group-item">Color: @Html.DisplayFor(modelItem => item.Color)</li>
+                    <li class="list-group-item">Precio: @Html.DisplayFor(modelItem => item.Precio)</li>
+                    <li class="list-group-item">Cantidad @Html.DisplayFor(modelItem => item.Cantidad)</li>
+                    <li class="list-group-item">
+                        <a asp-action="Edit" asp-route-id="@item.IdAuto" class="btn btn-success">Editar</a>
+                        <a asp-action="Details" asp-route-id="@item.IdAuto" class="btn btn-primary">Detalles</a>
+                        <a asp-action="Delete" asp-route-id="@item.IdAuto" class="btn btn-danger">Eliminar</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    }
+</div>

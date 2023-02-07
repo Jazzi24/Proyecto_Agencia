@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace Proyecto_Agencia.Models;
 
-public partial class Auto
+public partial class Moto
 {
-    public int IdAuto { get; set; }
+    public int IdMoto { get; set; }
 
     public string Modelo { get; set; } = null!;
 
