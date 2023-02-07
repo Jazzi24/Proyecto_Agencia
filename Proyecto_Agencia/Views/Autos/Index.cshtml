@@ -9,45 +9,26 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Modelo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Color)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Precio)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cantidad)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Modelo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Color)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Precio)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cantidad)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IdAuto">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdAuto">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdAuto">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-4 mt-4">
+            <div class="card text-bg-info mb-3" style="max-width: 18rem;">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><img src="https://thumbs.dreamstime.com/b/icono-del-coche-silueta-negra-de-autom%C3%B3vil-s%C3%ADmbolo-veh%C3%ADculo-vector-aislado-sobre-blanco-213429961.jpg" width="250px" /></li>
+                    <li class="list-group-item">Modelo: @Html.DisplayFor(modelItem => item.Modelo)</li>
+                    <li class="list-group-item">Color: @Html.DisplayFor(modelItem => item.Color)</li>
+                    <li class="list-group-item">Precio: @Html.DisplayFor(modelItem => item.Precio)</li>
+                    <li class="list-group-item">Cantidad @Html.DisplayFor(modelItem => item.Cantidad)</li>
+                    <li class="list-group-item">
+                        <a asp-action="Edit" asp-route-id="@item.IdAuto" class="btn btn-success">Editar</a>
+                        <a asp-action="Details" asp-route-id="@item.IdAuto" class="btn btn-primary">Detalles</a>
+                        <a asp-action="Delete" asp-route-id="@item.IdAuto" class="btn btn-danger">Eliminar</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+    }
+</div>
