@@ -8,7 +8,8 @@ using System;
 using System.Collections.Generic;
 
 namespace Proyecto_Agencia.Models;
-//Clase Auto
+
+// Creación de la clase Auto
 public partial class Auto
 {
     //Método IdAuto (Get, Set)
