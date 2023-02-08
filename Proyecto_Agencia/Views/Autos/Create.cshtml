@@ -1,15 +1,22 @@
-﻿@model Proyecto_Agencia.Models.Auto
+﻿<!--**************************************************
+ *    Autor:Stephanie Jacqueline Lagunas González.   *
+ *    Fecha creación: 06 de febrero del 2023.        *
+ *    Fecha actualización: 08 de febrero del 2023.   *
+ *    Descripción: Actualización de Create de Autos. *
+ **************************************************-->
+@model Proyecto_Agencia.Models.Auto
 
 @{
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>Creación</h1>
 
 <h4>Auto</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
+        <!-- Formulario de Creación -->
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -32,15 +39,16 @@
                 <input asp-for="Cantidad" class="form-control" />
                 <span asp-validation-for="Cantidad" class="text-danger"></span>
             </div>
+            <br>
             <div class="form-group">
                 <input type="submit" value="Crear" class="btn btn-primary" />
             </div>
+            <br>
+            <div>
+                <a asp-action="Index" class="btn btn-outline-info">Regresar a la lista</a>
+            </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index" class="btn btn-outline-info">Regresar a la lista</a>
 </div>
 
 @section Scripts {
