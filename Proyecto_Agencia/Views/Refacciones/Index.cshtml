@@ -65,7 +65,11 @@
     </script>
 </head>
 
+<h1>Index</h1>
 <body>
+    <p>
+        <a asp-action="Create" class="btn btn-success">Crear Nuevo</a>
+    </p>
     <!-- Banner -->
     <div class="container-fluid">
         <div class="row">
@@ -107,9 +111,7 @@
             </div>
         </div>
     </div>
-    <p>
-        <a asp-action="Create" class="btn btn-success">Crear Nuevo</a>
-    </p>
+
     <!--Container datos refacciones -->
     <section class="container">
         <div class="page-header">
@@ -152,6 +154,9 @@
             }
         </div>
     </section>
-
-
 </body>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

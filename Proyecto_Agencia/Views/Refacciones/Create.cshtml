@@ -20,50 +20,48 @@
 </head>
 
 <div class="conteiner">
-    <h1>Eliminar</h1>
-
-    <h3>Seguro quieres eliminar el producto?</h3>
-    <div>
-        <h4>Refaccione</h4>
-        <hr />
-        <dl class="row">
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Nombre)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Nombre)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Marca)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Marca)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Precio)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Precio)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Descripcion)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Descripcion)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Cantidad)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Cantidad)
-            </dd>
-        </dl>
-
-        <form asp-action="Delete">
-            <input type="hidden" asp-for="IdRefaccion" />
-            <input type="submit" value="Eliminar" class="btn btn-danger" /> |
-            <a asp-action="Index" style="color:black">Regresar</a>
-        </form><br />
-        <h2>___________</h2><br /><br />
-    </div>
+    <form asp-action="Create">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Nombre" class="control-label"></label>
+            <input asp-for="Nombre" class="form-control" required placeholder="Ingrese el nombre del producto" />
+            <span asp-validation-for="Nombre" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Marca" class="control-label"></label>
+            <input asp-for="Marca" class="form-control" required placeholder="Ingresa la marca" />
+            <span asp-validation-for="Marca" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Precio" class="control-label"></label>
+            <input asp-for="Precio" class="form-control" required placeholder="Ingresa el precio" />
+            <span asp-validation-for="Precio" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Descripcion" class="control-label"></label>
+            <input asp-for="Descripcion" class="form-control" required placeholder="Ingresa una descripcion" />
+            <span asp-validation-for="Descripcion" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Cantidad" class="control-label"></label>
+            <input asp-for="Cantidad" class="form-control" required placeholder="Cantidad" />
+            <span asp-validation-for="Cantidad" class="text-danger"></span>
+        </div><br />
+        <div class="form-group">
+            <input type="submit" value="Registrar" class="btn btn-primary" />
+        </div>
+    </form>
 </div>
+<br />
+<div>
+    <a asp-action="Index" style="color:black">Regresar</a>
+</div>
+<br />
+<h1>__________</h1>
+<br />
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
