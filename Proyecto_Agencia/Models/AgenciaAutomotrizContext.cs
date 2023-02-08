@@ -1,11 +1,19 @@
-﻿using System;
+﻿/****************************************************************  
+ *    Autor:Pérez Hernández Jazziel.                            *
+ *    Fecha creación: 06 de febrero del 2023.                   *
+ *    Fecha actualización: 08 de febrero del 2023.              *
+ *    Descripción: Actualización de AgenciaAutomotrizContext.cs.*
+ ****************************************************************/
+using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
 namespace Proyecto_Agencia.Models;
 
+//Clase  AgenciaAutomotrizContext
 public partial class AgenciaAutomotrizContext : DbContext
 {
+    //Constructor vacio
     public AgenciaAutomotrizContext()
     {
     }
@@ -20,10 +28,6 @@ public partial class AgenciaAutomotrizContext : DbContext
     public virtual DbSet<Moto> Motos { get; set; }
 
     public virtual DbSet<Refaccione> Refacciones { get; set; }
-
-//    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-//        => optionsBuilder.UseSqlServer("server=LAPTOP-IQTO5P3K\\SQLEXPRESS; database=Agencia_automotriz; Integrated Security=True; TrustServerCertificate=True;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
