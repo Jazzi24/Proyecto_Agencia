@@ -14,14 +14,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Agencia_Automotriz</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/stile.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/motostile.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Agencia_Automotriz.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script>
+        $(document).ready(function () {
+            var zindex = 10;
+
+            $("div.card").click(function (e) {
+                e.preventDefault();
+
+                var isShowing = false;
+
+                if ($(this).hasClass("show")) {
+                    isShowing = true
+                }
+
+                if ($("div.cards").hasClass("showing")) {
+                    // a card is already in view
+                    $("div.card.show")
+                        .removeClass("show");
+
+                    if (isShowing) {
+                        // this card was showing - reset the grid
+                        $("div.cards")
+                            .removeClass("showing");
+                    } else {
+                        // this card isn't showing - get in with it
+                        $(this)
+                            .css({ zIndex: zindex })
+                            .addClass("show");
+
+                    }
+
+                    zindex++;
+
+                } else {
+                    // no cards in view
+                    $("div.cards")
+                        .addClass("showing");
+                    $(this)
+                        .css({ zIndex: zindex })
+                        .addClass("show");
+
+                    zindex++;
+                }
+
+            });
+        });
+    </script>
 </head>
 
 <body>
     <p>
-        <a asp-action="Create">Crear Nuevo</a>
+        <a asp-action="Create" class="btn btn-success">Crear Nuevo</a>
     </p>
     <!-- Banner -->
     <div class="container-fluid">
@@ -107,5 +153,4 @@
             }
         </div>
     </section>
-
 </body>
