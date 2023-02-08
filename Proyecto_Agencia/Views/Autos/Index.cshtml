@@ -1,17 +1,24 @@
-﻿@model IEnumerable<Proyecto_Agencia.Models.Auto>
+﻿<!--*************************************************
+ *    Autor:Stephanie Jacqueline Lagunas González.  *
+ *    Fecha creación: 06 de febrero del 2023.       *
+ *    Fecha actualización: 08 de febrero del 2023.  *
+ *    Descripción: Actualización del index de Autos.*
+ *************************************************-->
+@model IEnumerable<Proyecto_Agencia.Models.Auto>
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Principal</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-success">Nuevo Registro</a>
 </p>
 <div class="row">
     @foreach (var item in Model)
     {
+        <!-- Cards -->
         <div class="col-4 mt-4">
             <div class="card text-bg-info mb-3" style="max-width: 18rem;">
                 <ul class="list-group list-group-flush">

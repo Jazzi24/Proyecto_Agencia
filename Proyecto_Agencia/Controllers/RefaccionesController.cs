@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*******************************************************************  
+ *    Autor:Stephanie Jacqueline Lagunas González.                 *
+ *    Fecha creación: 06 de febrero del 2023.                      *
+ *    Fecha actualización: 08 de febrero del 2023.                 *
+ *    Descripción: Actualización de la clase RefaccionesController.*
+ *******************************************************************/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,6 +15,7 @@ using Proyecto_Agencia.Models;
 
 namespace Proyecto_Agencia.Controllers
 {
+    //Clase RefaccionesController
     public class RefaccionesController : Controller
     {
         private readonly AgenciaAutomotrizContext _context;
@@ -49,8 +56,6 @@ namespace Proyecto_Agencia.Controllers
         }
 
         // POST: Refacciones/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IdRefaccion,Nombre,Marca,Precio,Descripcion,Cantidad")] Refaccione refaccione)
@@ -81,8 +86,6 @@ namespace Proyecto_Agencia.Controllers
         }
 
         // POST: Refacciones/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("IdRefaccion,Nombre,Marca,Precio,Descripcion,Cantidad")] Refaccione refaccione)

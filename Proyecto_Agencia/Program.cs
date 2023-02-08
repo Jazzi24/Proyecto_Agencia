@@ -1,3 +1,9 @@
+/********************************************************  
+ *    Autor:Pérez Hernández Jazziel.                    *
+ *    Fecha creación: 06 de febrero del 2023.           *
+ *    Fecha actualización: 08 de febrero del 2023.      *
+ *    Descripción: Actualización de Program.            *
+ ********************************************************/
 using Microsoft.EntityFrameworkCore;
 using Proyecto_Agencia.Models;
 
@@ -6,7 +12,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<AgenciaAutomotrizContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("conexion")));
+//Conexión a la base de datos
+builder.Services.AddDbContext<AgenciaAutomotrizContext>(options 
+    => options.UseSqlServer(builder.Configuration.GetConnectionString("conexion")));
 
 var app = builder.Build();
 

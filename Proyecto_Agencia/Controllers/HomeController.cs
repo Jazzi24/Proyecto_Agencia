@@ -1,9 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿/************************************************************  
+ *    Autor:Stephanie Jacqueline Lagunas González.          *
+ *    Fecha creación: 06 de febrero del 2023.               *
+ *    Fecha actualización: 08 de febrero del 2023.          *
+ *    Descripción: Actualización de la clase HomeController.*
+ ************************************************************/
+using Microsoft.AspNetCore.Mvc;
 using Proyecto_Agencia.Models;
 using System.Diagnostics;
 
 namespace Proyecto_Agencia.Controllers
 {
+    //Clase HomeController
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
