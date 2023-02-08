@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*************************************************************  
+ *    Autor:Stephanie Jacqueline Lagunas González.           *
+ *    Fecha creación: 06 de febrero del 2023.                *
+ *    Fecha actualización: 08 de febrero del 2023.           *
+ *    Descripción: Actualización de la clase MotosController.*
+ *************************************************************/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,6 +15,7 @@ using Proyecto_Agencia.Models;
 
 namespace Proyecto_Agencia.Controllers
 {
+    //Clase MotosController
     public class MotosController : Controller
     {
         private readonly AgenciaAutomotrizContext _context;
@@ -49,8 +56,6 @@ namespace Proyecto_Agencia.Controllers
         }
 
         // POST: Motos/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IdMoto,Modelo,Color,Precio,Cantidad")] Moto moto)
@@ -81,8 +86,6 @@ namespace Proyecto_Agencia.Controllers
         }
 
         // POST: Motos/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("IdMoto,Modelo,Color,Precio,Cantidad")] Moto moto)
