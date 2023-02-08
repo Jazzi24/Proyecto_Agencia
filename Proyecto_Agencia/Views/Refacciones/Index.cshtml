@@ -3,57 +3,103 @@
 @{
     ViewData["Title"] = "Index";
 }
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Agencia_Automotriz</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/stile.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Agencia_Automotriz.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
 
-<h1>Index</h1>
+<body>
+    <p>
+        <a asp-action="Create">Crear Nuevo</a>
+    </p>
+    <!-- Banner -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="banner">
+                    <div class="logo">
+                        <img src="~/image/OIP.jpg">
+                    </div>
+                    <div class="messages">
+                        <!-- Message 2 -->
+                        <div id="topic-1" class="message-topic">Bienvenidos</div>
+                        <div id="message-1" class="message-content">
+                            <span style="font-size:large">Somos tu mejor opcion</span>
+                            <h1>somos</h1>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <br>
+                <a href="#" data-toggle="modal" data-target="#myModal"></a>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nombre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Marca)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Precio)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Descripcion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cantidad)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Marca)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Precio)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descripcion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cantidad)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IdRefaccion">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdRefaccion">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdRefaccion">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <div class="modal fade" tabindex="-1" role="dialog" id="myModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Container datos refacciones -->
+    <section class="container">
+        <div class="page-header">
+            <h1 style="text-align:center; color:white;">Refacciones<br> </h1>
+        </div>
+        <div class="row active-with-click">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <article class="material-card Red">
+                        <h2>
+                            <span>@Html.DisplayFor(modelItem => item.Nombre)</span>
+                            <strong>
+                                <i class="fa fa-fw fa-star"></i>
+                            </strong>
+                        </h2>
+                        <div class="mc-content">
+                            <div class="img-container">
+                                <img class="img-responsive" src="https://irp-cdn.multiscreensite.com/dc8f77a2/MOBILE/png/598947-salper-repuestos-accesorios-y-repuestos-para-vehiculo.png">
+                            </div>
+                            <div class="mc-description">
+                                <ul>
+                                    <li>Marca: @Html.DisplayFor(modelItem => item.Marca)</li>
+                                    <li>Precio: @Html.DisplayFor(modelItem => item.Precio)</li>
+                                    <li>Descripcion: @Html.DisplayFor(modelItem => item.Descripcion)</li>
+                                    <li>Cantidad: @Html.DisplayFor(modelItem => item.Cantidad)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a class="mc-btn-action">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                        <div class="mc-footer">
+                            <a asp-action="Edit" asp-route-id="@item.IdRefaccion">Edit</a>
+                            <a asp-action="Details" asp-route-id="@item.IdRefaccion">Details</a>
+                            <a asp-action="Delete" asp-route-id="@item.IdRefaccion">Delete</a>
+                        </div>
+                    </article>
+                </div>
+            }
+        </div>
+    </section>
+
+</body>

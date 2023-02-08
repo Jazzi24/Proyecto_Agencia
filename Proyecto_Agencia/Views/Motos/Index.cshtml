@@ -3,51 +3,104 @@
 @{
     ViewData["Title"] = "Index";
 }
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Agencia_Automotriz</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/motostile.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Agencia_Automotriz.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script>
+        $(document).ready(function () {
+            var zindex = 10;
 
+            $("div.card").click(function (e) {
+                e.preventDefault();
+
+                var isShowing = false;
+
+                if ($(this).hasClass("show")) {
+                    isShowing = true
+                }
+
+                if ($("div.cards").hasClass("showing")) {
+                    // a card is already in view
+                    $("div.card.show")
+                        .removeClass("show");
+
+                    if (isShowing) {
+                        // this card was showing - reset the grid
+                        $("div.cards")
+                            .removeClass("showing");
+                    } else {
+                        // this card isn't showing - get in with it
+                        $(this)
+                            .css({ zIndex: zindex })
+                            .addClass("show");
+
+                    }
+
+                    zindex++;
+
+                } else {
+                    // no cards in view
+                    $("div.cards")
+                        .addClass("showing");
+                    $(this)
+                        .css({ zIndex: zindex })
+                        .addClass("show");
+
+                    zindex++;
+                }
+
+            });
+        });
+    </script>
+</head>
 <h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Modelo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Color)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Precio)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cantidad)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Modelo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Color)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Precio)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cantidad)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IdMoto">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdMoto">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdMoto">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<body>
+    <p>
+        <a asp-action="Create">Crear Nuevo</a>
+    </p>
+    <section class="container">
+        <div class="page-header">
+            <h1 style="text-align:center; color:white;">Motos<br> </h1>
+        </div>
+        <div class="row active-with-click">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <article class="material-card Red">
+                        <h2>
+                            <span>@Html.DisplayFor(modelItem => item.Modelo)</span>
+                            <strong>
+                                <i class="fa fa-fw fa-star"></i>
+                            </strong>
+                        </h2>
+                        <div class="mc-content">
+                            <div class="img-container">
+                                <img class="img-responsive" src="~/image/2.png">
+                            </div>
+                            <div class="mc-description">
+                                <ul>
+                                    <li>Color: @Html.DisplayFor(modelItem => item.Color)</li>
+                                    <li>Cantidad: @Html.DisplayFor(modelItem => item.Cantidad)</li>
+                                    <li>Presio: $ @Html.DisplayFor(modelItem => item.Precio)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a class="mc-btn-action">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                        <div class="mc-footer">
+                            <a asp-action="Edit" asp-route-id="@item.IdMoto">Editar</a> |
+                            <a asp-action="Details" asp-route-id="@item.IdMoto">Detalles</a> |
+                            <a asp-action="Delete" asp-route-id="@item.IdMoto">Eliminar</a>
+                        </div>
+                    </article>
+                </div>
+            }
+        </div>
+    </section>
+</body>
