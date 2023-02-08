@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 namespace Proyecto_Agencia.Models;
-
+// Creación de la clase Auto
 public partial class Auto
 {
     public int IdAuto { get; set; }
